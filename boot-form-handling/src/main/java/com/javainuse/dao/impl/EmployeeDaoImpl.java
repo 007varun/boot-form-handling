@@ -34,7 +34,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 	
 	@Override
 	public void insertWork(work w) {
-		String sql = "INSERT INTO workshops " +
+		String sql = "INSERT INTO publication " +
 				"(workid, topic, venue, wsdate, organiser, location ) VALUES (?, ?, ?, ?, ?, ?)" ;
 		getJdbcTemplate().update(sql, new Object[]{
 				w.getWorkid(), w.getTopic(), w.getVenue(), w.getDate(), w.getOrganiser(), w.getLocation()
@@ -43,7 +43,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 	
 	@Override
 	public void insertWorks(final List<work> works) {
-		String sql = "INSERT INTO workshops " + "(workid, topic, venue, wsdate, organiser, location )"
+		String sql = "INSERT INTO publication " + "(workid, topic, venue, wsdate, organiser, location )"
 				+ " VALUES (?, ?, ?, ?, ?, ?)";
 		getJdbcTemplate().batchUpdate(sql, new BatchPreparedStatementSetter() {
 			public void setValues(PreparedStatement ps, int i) throws SQLException {
@@ -64,7 +64,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 	}
 	@Override
 	public List<work> getAllWorks(){
-		String sql = "SELECT * FROM workshops";
+		String sql = "SELECT * FROM publication";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -85,7 +85,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public work getWorkById(String empId) {
-		String sql = "SELECT * FROM workshops WHERE workid = ?";
+		String sql = "SELECT * FROM publication WHERE workid = ?";
 		return (work)getJdbcTemplate().queryForObject(sql, new Object[]{empId}, new RowMapper<work>(){
 			@Override
 			public work mapRow(ResultSet rs, int rwNumber) throws SQLException {
@@ -104,7 +104,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByTopic(String topic) {
-		String sql = "SELECT * FROM workshops where topic like '%"+topic+"%'";
+		String sql = "SELECT * FROM publication where topic like '%"+topic+"%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -125,7 +125,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByDate(Date date) {
-		String sql = "SELECT * FROM workshops where wsdate like '%"+date+"%'";
+		String sql = "SELECT * FROM publication where wsdate like '%"+date+"%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -146,7 +146,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByCity(String city) {
-		String sql = "SELECT * FROM workshops where location like '%"+city+"%'";
+		String sql = "SELECT * FROM publication where location like '%"+city+"%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -167,7 +167,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByCollege(String college) {
-		String sql = "SELECT * FROM workshops where location like '%"+college+"%'";
+		String sql = "SELECT * FROM publication where location like '%"+college+"%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -189,7 +189,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByOrganiser(String organiser) {
-		String sql = "SELECT * FROM workshops where organiser like '%"+organiser+"%'";
+		String sql = "SELECT * FROM publication where organiser like '%"+organiser+"%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -209,7 +209,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByYear(int year) {
-		String sql = "SELECT * FROM workshops where wsdate like '%"+year+"%'";
+		String sql = "SELECT * FROM publication where wsdate like '%"+year+"%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();
@@ -230,7 +230,7 @@ public class EmployeeDaoImpl extends JdbcDaoSupport implements EmployeeDao{
 
 	@Override
 	public List<work> getWorkByMonth(int month) {
-		String sql = "SELECT * FROM workshops where date like '%-"+month+"-%'";
+		String sql = "SELECT * FROM publication where date like '%-"+month+"-%'";
 		List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 		
 		List<work> result = new ArrayList<work>();

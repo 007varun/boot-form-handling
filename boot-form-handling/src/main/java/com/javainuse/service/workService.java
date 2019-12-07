@@ -15,6 +15,6 @@ public interface workService {
 	List<work> getWorkByYear(int year);
 	List<work> getWorkByMonth(int month);
 	List<work> getWorkByCity(String city);
-	List<work> getWorkByCollege(String college);
+	List<work> getWorkByCollege(String location);
 	List<work> getWorkByOrganiser(String organiser);
 }

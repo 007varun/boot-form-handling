@@ -1,12 +1,34 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
 
-<div style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px;">
+</style>
+<div class ="navbar">
 
 	<a href="${pageContext.request.contextPath}/welcome">welcome page</a> | &nbsp;
-	<a href="${pageContext.request.contextPath}/addWorkshop">Add a Publication</a> | &nbsp; 
-	<a href="${pageContext.request.contextPath}/getWorkshops">Show Publications</a> |&nbsp;
-	<a href="${pageContext.request.contextPath}/getWorkshopsByID">Get a publication by ID</a> | &nbsp;
-	<a href="${pageContext.request.contextPath}/getWorkshopsByTopic">Get Publication by Topic</a> | &nbsp;
-	<a href="${pageContext.request.contextPath}/getWorkshopsByCollege">Get Publication by location</a>
+	<a href="${pageContext.request.contextPath}/addpub">Add a Publication</a> | &nbsp; 
+	<a href="${pageContext.request.contextPath}/getpub">Show Publications</a> |&nbsp;
+	<a href="${pageContext.request.contextPath}/getpubByID">Get a publication by ID</a> | &nbsp;
+	<a href="${pageContext.request.contextPath}/getpubByTopic">Get Publication by Topic</a> | &nbsp;
+	<a href="${pageContext.request.contextPath}/getpubByCollege">Get Publication by location</a>
 	
 </div>

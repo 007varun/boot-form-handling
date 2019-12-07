@@ -2,6 +2,7 @@ package com.javainuse.model;
 /*
 public class Employee {
 
+
 	private String empId;
 	private String empName;
 
@@ -78,8 +79,8 @@ public class work {
 			this.workid = workid;
 		}
 
-		@Override
+	/*	@Override
 		public String toString() {
-			return ("Publication[ID=" + workid + ", Topic=" + topic + ", conference=" + venue + ", Date=" + date + ", journal=" + organiser + ", Location=" + location + "]");
-		}
+			return (workid +"|----|" +topic+ "|----|" + venue +"|----|" +date +"|----|"+  organiser +"|----|"+ location+"|");
+		} */
 }

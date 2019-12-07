@@ -5,17 +5,18 @@
 <title>Add publication</title>
 </head>
 <jsp:include page="menu.jsp" />
-<body>
+<body bgcolor="#CB8CE9">
+<center>
 	<h3 style="color: red;">topic query</h3>
 
-	<div id="addWorkshop">
-		<form action="/getWorkshopsByCollege" method="post">
+	<div id="addpub">
+		<form action="/getpubByCollege" method="post">
 			<p>
 				<label>Enter publication location</label>
 				<input type="text" name="location" />
 			</p>
 			<input type="SUBMIT" value="Submit" />
 		</form>
-	</div>
+	</div></center>
 </body>
 </html>

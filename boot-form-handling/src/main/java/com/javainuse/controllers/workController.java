@@ -33,36 +33,36 @@ public class workController {
 		return new ModelAndView("welcome");
 	}
 
-	@RequestMapping(value = "/addWorkshop", method = RequestMethod.GET)
+	@RequestMapping(value = "/addpub", method = RequestMethod.GET)
 	public ModelAndView show() {
-		return new ModelAndView("addWorkshop", "work", new work());
+		return new ModelAndView("addpub", "work", new work());
 	}
 
-	@RequestMapping(value = "/addWorkshop", method = RequestMethod.POST)
+	@RequestMapping(value = "/addpub", method = RequestMethod.POST)
 	public ModelAndView processRequest(@ModelAttribute("work") work w) {
 		
 		workservice.insertWork(w);
 		List<work> works = workservice.getAllWorks();
-		ModelAndView model = new ModelAndView("getWorkshop");
+		ModelAndView model = new ModelAndView("getpub");
 		model.addObject("works", works);
 		return model;
 	}
 
-	@RequestMapping("/getWorkshops")
+	@RequestMapping("/getpub")
 	public ModelAndView getEmployees() {
 		List<work> works = workservice.getAllWorks();
-		ModelAndView model = new ModelAndView("getWorkshop");
+		ModelAndView model = new ModelAndView("getpub");
 		model.addObject("works", works);
 		return model;
 	}
 	
-	@RequestMapping(value= "/getWorkshopsByID", method = RequestMethod.GET)
+	@RequestMapping(value= "/getpubByID", method = RequestMethod.GET)
 	public ModelAndView EnterID()
 	{
 		return new ModelAndView("enterID");//, "id" , new String());
 	}
 	
-	@RequestMapping(value= "/getWorkshopsByID", method = RequestMethod.POST)
+	@RequestMapping(value= "/getpubByID", method = RequestMethod.POST)
 	public ModelAndView getByID(@RequestParam("id") String id)//@ModelAttribute("id") String id)
 	{
 		work w = workservice.getWorkById(id);
@@ -74,13 +74,13 @@ public class workController {
 	}
 	
 	//for topic
-	@RequestMapping(value= "/getWorkshopsByTopic", method = RequestMethod.GET)
+	@RequestMapping(value= "/getpubByTopic", method = RequestMethod.GET)
 	public ModelAndView EnterTopic()
 	{
 		return new ModelAndView("enterTopic");//, "id" , new String());
 	}
 	
-	@RequestMapping(value= "/getWorkshopsByTopic", method = RequestMethod.POST)
+	@RequestMapping(value= "/getpubByTopic", method = RequestMethod.POST)
 	public ModelAndView getByTopic(@RequestParam("topic") String topic)//@ModelAttribute("id") String id)
 	{
 		List<work> works = workservice.getWorkByTopic(topic);
@@ -90,13 +90,13 @@ public class workController {
 	}
 	
 	//for college
-		@RequestMapping(value= "/getWorkshopsByCollege", method = RequestMethod.GET)
+		@RequestMapping(value= "/getpubByCollege", method = RequestMethod.GET)
 		public ModelAndView EnterCollege()
 		{
 			return new ModelAndView("enterCollege");//, "id" , new String());
 		}
 		
-		@RequestMapping(value= "/getWorkshopsByCollege", method = RequestMethod.POST)
+		@RequestMapping(value= "/getpubByCollege", method = RequestMethod.POST)
 		public ModelAndView getByCollege(@RequestParam("location") String college)//@ModelAttribute("id") String id)
 		{
 			List<work> works = workservice.getWorkByCollege(college);

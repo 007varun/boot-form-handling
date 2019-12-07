@@ -62,8 +62,8 @@ public class WorkServiceImpl implements workService {
 	}
 
 	@Override
-	public List<work> getWorkByCollege(String college) {
-		return employeeDao.getWorkByCollege(college);
+	public List<work> getWorkByCollege(String location) {
+		return employeeDao.getWorkByCollege(location);
 	}
 
 	@Override
